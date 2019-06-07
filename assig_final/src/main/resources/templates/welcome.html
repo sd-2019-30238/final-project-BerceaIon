@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <head>
+    </head>
+<body>
+<table>
+    <tr th:each="message : ${books}">
+        <td th:text="${message.author}">Title</td>
+    </tr>
+</table>
+</body>
+</html>

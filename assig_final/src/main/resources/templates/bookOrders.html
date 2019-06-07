@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Book Store - Login</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: #ededed;">
+	<div class="container">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>User email</th>
+				<th>Author</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="order : ${bookOrders}">
+				<td th:text="${order.user.email}"></td>
+				<td th:text="${order.book.author}"></td>
+				<td><form action="#"
+						th:action="@{/orders/sendBookBack/{id} (id = ${order.id})}"
+						th:method="delete">
+						<input type="hidden" name="_method" value="delete">
+						<button th:type="submit">Return book</button>
+					</form></td>
+
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>
